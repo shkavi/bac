@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Build Details</title>
+</head>
+<body>
+    <h1>build Details</h1>
+    <ul>
+        {% for document in documents %}
+        <li  style="margin-bottom: 30px;">
+            <strong>BUILD:</strong> {{ document.build }}<br>
+            <strong>BRANCH:</strong> {{ document.branch }}<br>
+            <strong>STAGE:</strong> {{ document.stage }}<br>
+            <strong>Files:</strong><a href="{{ url_for('view_html' ,filename=document.log)}}" target="_blank">{{ document.log }}</a><br>
+            <strong>NAME:</strong> {{ document.name }}<br>
+            <strong>Test Duration:</strong> {{ document.test_duration }}<br>
+            <strong>Result:</strong> {{ document.result }}<br>
+            <strong>critical:</strong> {{ document.critical }}<br>
+            <strong>status:</strong> {{ document.status }}<br>
+            <strong>pipeline_status:</strong> {{ document.pipeline_status }}<br>
+    </li>
+        {% endfor %}
+    </ul>
+
+<script>
+        console.log(documents);
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Build Details</title>
+</head>
+<body>
+    
+    <ul>
+        {% for collection_name,documents in collections.items() %}
+            {% for doc in documents  %}
+                <li  style="margin-bottom: 30px;">
+                    <a href="/index/{{ collection_name }}/{{ doc._id }}">
+                        <div style="width: 50pc; height: 50px;">
+                            <strong>BUILD:</strong> {{ doc.build }}<br>
+                            <strong>pipeline_status:</strong> {{ doc.pipeline_status }}<br>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+
+<script>
+        console.log(documents);
+</script>
+</body>
+</html>
